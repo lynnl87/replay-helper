@@ -1,41 +1,37 @@
 import './App.css';
 import React from 'react';
-import { Form, Button } from 'react-bootstrap';
-import UserDataResults from './UserDataResults.js'
+import { Navbar, Nav } from 'react-bootstrap';
+import VersusData from './VersusData'
+import PlayerData from './PlayerData'
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+} from "react-router-dom";
 
-class App extends React.Component {
-  constructor(props) {
-    super(props);    
-    this.state = {
-        results: []
-    };  
-  }
+function App() {
 
-  onFormSubmit = e => {
-    e.preventDefault()
-    const formData = new FormData(e.target),
-    formDataObj = Object.fromEntries(formData.entries())
-    fetch('http://spare-pc:8081/api/v1/user_data/' + formDataObj['username'])
-    .then(response => response.json())
-    .then(data => this.setState({results: data}))
-  }
-  render() {
-    return (
-      <div className="App">
-        <body className="App-body">
-        <Form onSubmit={this.onFormSubmit}>
-            <Form.Group controlId="formUserSearch">
-              <Form.Label>Username</Form.Label>
-              <Form.Control name="username" type="text" placeholder="Enter username" />
-            </Form.Group>
-            <Button variant="primary" type="submit">
-              Search
-            </Button>
-          </Form>
-          <UserDataResults results={this.state.results}/>
-        </body>
-      </div>
-    );
-  }
+  return (
+    <Router>
+      <Navbar bg="light" variant="light" sticky="top">
+        <Navbar.Brand href="/">Replay Helper</Navbar.Brand>
+        <Nav className="mr-auto">
+          <Nav.Link href="/">Home</Nav.Link>
+          <Nav.Link href="/player-data">Player Data</Nav.Link>
+        </Nav>
+      </Navbar>
+      {/* A <Switch> looks through its children <Route>s and
+          renders the first one that matches the current URL. */}
+      <Switch>
+        <Route path="/player-data">
+          <PlayerData />
+        </Route>
+        <Route path="/">
+          <VersusData />
+        </Route>
+      </Switch>
+    </Router>
+  );
 }
+
 export default App;
