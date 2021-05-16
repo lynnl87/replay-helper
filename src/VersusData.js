@@ -14,7 +14,7 @@ class VersusData extends React.Component {
       e.preventDefault()
       const formData = new FormData(e.target),
       formDataObj = Object.fromEntries(formData.entries())
-      fetch('http://spare-pc:8081/api/v1/user_data/' + formDataObj['username'])
+      fetch('http://' + window.location.hostname + ':8081/api/v1/users/' + formDataObj['username'] + '/vs/squacoon')
       .then(response => response.json())
       .then(data => this.setState({results: data}))
     }

@@ -57,17 +57,19 @@ class UserDataResults extends React.Component {
                             <Card.Header>With</Card.Header>
                             <Card.Body>
                                 <Table striped bordered hover>
-                                    <tr>
-                                        <th>
-                                            Hero
-                                        </th>
-                                        <th>
-                                            Won?
-                                        </th>
-                                        <th>
-                                            Squacoon Hero
-                                        </th>
-                                    </tr>
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                Hero
+                                            </th>
+                                            <th>
+                                                Won?
+                                            </th>
+                                            <th>
+                                                Squacoon Hero
+                                            </th>
+                                        </tr>
+                                    </thead>
                                     {resultParts}
                                 </Table>
                             </Card.Body>
@@ -80,17 +82,19 @@ class UserDataResults extends React.Component {
                             <Card.Header>Against</Card.Header>
                             <Card.Body>
                                 <Table striped bordered hover>
-                                    <tr>
-                                        <th>
-                                            Hero
-                                        </th>
-                                        <th>
-                                            Won?
-                                        </th>
-                                        <th>
-                                            Squacoon Hero
-                                        </th>
-                                    </tr>
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                Hero
+                                            </th>
+                                            <th>
+                                                Won?
+                                            </th>
+                                            <th>
+                                                Squacoon Hero
+                                            </th>
+                                        </tr>
+                                    </thead>
                                     {againstParts}
                                 </Table>
                             </Card.Body>

@@ -1,8 +1,8 @@
 import React from 'react';
 import { Form, Button, Container, Row, Col, } from 'react-bootstrap';
-import PlayerDataResults from './PlayerDataResults';
+import PlayerStatResults from './PlayerStatResults';
 
-class PlayerData extends React.Component {
+class PlayerStats extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -14,7 +14,7 @@ class PlayerData extends React.Component {
         e.preventDefault()
         const formData = new FormData(e.target),
             formDataObj = Object.fromEntries(formData.entries())
-        fetch('http://' + window.location.hostname + ':8081/api/v1/users/' + formDataObj['username'] + '/data')
+        fetch('http://' + window.location.hostname + ':8081/api/v1/map_data/' + formDataObj['username'])
             .then(response => response.json())
             .then(data => this.setState({ results: data }))
     }
@@ -36,10 +36,10 @@ class PlayerData extends React.Component {
                     </Col>
                 </Row>
                 <Row>
-                    <PlayerDataResults results={this.state.results} />
+                    <PlayerStatResults results={this.state.results} />
                 </Row>
             </Container>
         );
     }
 }
-export default PlayerData;
+export default PlayerStats;

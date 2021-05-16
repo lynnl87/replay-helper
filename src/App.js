@@ -3,6 +3,7 @@ import React from 'react';
 import { Navbar, Nav } from 'react-bootstrap';
 import VersusData from './VersusData'
 import PlayerData from './PlayerData'
+import PlayerStats from './PlayerStats'
 import {
   BrowserRouter as Router,
   Switch,
@@ -18,6 +19,7 @@ function App() {
         <Nav className="mr-auto">
           <Nav.Link href="/">Home</Nav.Link>
           <Nav.Link href="/player-data">Player Data</Nav.Link>
+          <Nav.Link href="/player-stats">Player Stats</Nav.Link>
         </Nav>
       </Navbar>
       {/* A <Switch> looks through its children <Route>s and
@@ -25,6 +27,9 @@ function App() {
       <Switch>
         <Route path="/player-data">
           <PlayerData />
+        </Route>
+        <Route path="/player-stats">
+          <PlayerStats />
         </Route>
         <Route path="/">
           <VersusData />
